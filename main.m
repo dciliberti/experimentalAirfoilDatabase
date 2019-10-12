@@ -1,11 +1,20 @@
 close all; clear; clc
 
 % Input data
-saveFiguresFlag = 0;
-numberOfSections = 1;
-airfoilType = {'sc'};
-localReynolds = [6E6];
-thicknessRatio = [9];
+saveFiguresFlag = 0;        % write png figures on disk (yes = 1; no = 0)
+numberOfSections = 1;       % scalar, how many section to analyze
+airfoilType = {'sc'};       % cell array of char arrays
+localReynolds = [6E6];      % numeric array, Reynolds number of each section
+thicknessRatio = [9];       % numeric array, percentage relative thickness
+
+% airfoilType may be one of the following:
+%   '4s'    symmetric 4-digit NACA airfoil
+%   '4a'    asymmetric 4-digit NACA airfoil
+%   '5s'    symmetric 5-digit NACA airfoil
+%   '5a'    asymmetric 5-digit NACA airfoil
+%   '6s'    symmetric 6-series NACA airfoil
+%   '6a'    asymmetric 6-series NACA airfoil
+%   'sc'    NASA supercritical airfoil
 
 % Call airfoil database
 [localClMax, localClAlfa, localAlfaStar, localAlfaStall, localClZero,...
