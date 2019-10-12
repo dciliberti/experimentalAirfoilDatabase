@@ -1,11 +1,12 @@
 close all; clear; clc
 
 % Input data
-saveFiguresFlag = 0;        % write png figures on disk (yes = 1; no = 0)
-numberOfSections = 1;       % scalar, how many section to analyze
-airfoilType = {'sc'};       % cell array of char arrays
-localReynolds = [6E6];      % numeric array, Reynolds number of each section
-thicknessRatio = [9];       % numeric array, percentage relative thickness
+saveFiguresFlag = 1;        % write png figures on disk (yes = 1; no = 0)
+numberOfSections = 4;       % scalar, how many section to analyze
+airfoilType = {'4a', '5a', '6a', 'sc'};       % cell array of char arrays
+localReynolds = [6E6, 6E6, 6E6, 6E6];      % numeric array, Reynolds number of each section
+thicknessRatio = [12, 15, 10, 8];       % numeric array, percentage relative thickness
+bezierFlag = 1;             % switch to 1 to plot Bezier curve control points
 
 % airfoilType may be one of the following:
 %   '4s'    symmetric 4-digit NACA airfoil
@@ -25,36 +26,22 @@ localClStar = localClAlfa .* (localAlfaStar - localAlfaZeroLift);
 % Generate figures
 for i = 1:numberOfSections
     
-    A = [localAlfaStar(i)^3, localAlfaStar(i)^2, localAlfaStar(i), 1; ...
-        localAlfaStall(i)^3, localAlfaStall(i)^2, localAlfaStall(i), 1; ...
-        3*localAlfaStar(i)^2, 2*localAlfaStar(i), 1, 0; ...
-        3*localAlfaStall(i)^2, 2*localAlfaStall(i), 1, 0];
-    b = [localClStar(i), localClMax(i), localClAlfa(i), 0]';
-    x = A\b;
+    % Lift curve: linear range
+    alfaLinear = linspace(localAlfaZeroLift(i),localAlfaStar(i));
+    clLinear = localClAlfa(i) * (alfaLinear - localAlfaZeroLift(i));
     
-    % Lift curve
-    alfaLinear = localAlfaZeroLift(i):localAlfaStar(i);
-    alfaNonLinear = localAlfaStar(i):0.1:localAlfaStall+3;
-    clLinear = localClAlfa(i) .* (alfaLinear - localAlfaZeroLift(i));
-    clNonLinear = x(1)*alfaNonLinear.^3 + x(2)*alfaNonLinear.^2 + ...
-        x(3)*alfaNonLinear + x(4);
-    
-    % Use a parabola instead of a cubic curve, if the reconstructed curve goes
-    % beyond Clmax, which falls on a local minimum instead of the maximum
-    if round(max(clNonLinear),2) > round(localClMax(i),2)
-        A = [localAlfaStar(i)^2, localAlfaStar(i), 1; ...
-            localAlfaStall(i)^2, localAlfaStall(i), 1; ...
-            2*localAlfaStall(i), 1, 0];
-        b = [localClStar(i), localClMax(i), 0]';
-        x = A\b;
-        clNonLinear = x(1)*alfaNonLinear.^2 + x(2)*alfaNonLinear + x(3);
-        disp('Using a parabola instead of a cubic curve')
+    % Lift curve: non-linear range
+    alfa1 = (localClMax(i) - localClStar(i)) / localClAlfa(i) + localAlfaStar(i);
+    if alfa1 > localAlfaStall(i)
+        localAlfaStall(i) = alfa1; % otherwise slope in the non-linear range increases!
     end
+    cl1 = localClMax(i);
     
-    % Cut the curve if in post-stall decrease too much
-    while clNonLinear(end) < localClStar(i)
-        alfaNonLinear = alfaNonLinear(1:end-1);
-        clNonLinear = clNonLinear(1:end-1);
+    c = 0;
+    for t = 0:0.1:1     % reconstruction with a quadratic Bezier curve
+        c = c + 1;
+        alfaNonLinear(c) = (1-t)^2*localAlfaStar(i) + 2*t*(1-t)*alfa1 + t^2*localAlfaStall(i); %#ok<*SAGROW>
+        clNonLinear(c) = (1-t)^2*localClStar(i) + 2*t*(1-t)*cl1 + t^2*localClMax(i);
     end
     
     alfaArray = [alfaLinear, alfaNonLinear];
@@ -63,19 +50,29 @@ for i = 1:numberOfSections
     % Drag polar
     cdArray = localCdMin(i) + localK(i) * (clArray - localCli(i)).^2;
     
-    % Plot
+    % Plot charts
     figure('units','normalized','outerposition',[0 0 1 1])
     subplot(1,2,1)  % Lift curve
     plot(alfaArray,clArray,'k','LineWidth',2)
     grid on, xlabel('Angle of attack, deg'), ylabel('Lift Coefficient')
     title(['Lift curve of section ', num2str(i), ', Re = ', num2str(localReynolds(i))])
     
+    if bezierFlag == 1
+       hold on
+       scatter([localAlfaStar(i),alfa1,localAlfaStall(i)], [localClStar(i),cl1,localClMax(i)], ...
+           'Marker','o', 'MarkerFaceColor', 'k', 'MarkerEdgeColor', 'r', 'SizeData', 24)
+       plot([localAlfaStar(i),alfa1,localAlfaStall(i)], [localClStar(i),cl1,localClMax(i)], 'k--')
+       hold off
+    end
+    
     subplot(1,2,2)  % Drag polar
     plot(cdArray,clArray,'k','LineWidth',2)
     ax = gca;   ax.XLim(1) = 0;
     grid on, xlabel('Drag coefficient'), ylabel('Lift Coefficient')
-    title(['Lift curve of section ', num2str(i), ', Re = ', num2str(localReynolds(i))])
+    title(['Drag polar of section ', num2str(i), ', Re = ', num2str(localReynolds(i))])
     
+    sgtitle(['Airfoil type: ', airfoilType{i}, ...
+        '     Relative thickness: ', num2str(thicknessRatio(i)), '%']);
 end
 
 % Export all figures (if requested)
