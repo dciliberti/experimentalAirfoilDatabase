@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration build-checksum="3636830687" file="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\desktopAppSources\airfoilDataExe.prj" location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\desktopAppSources" name="airfoilDataExe" preferred-package-location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\desktopAppSources\airfoilDataExe\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="868797534" file="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src\airfoilDataExe.prj" location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src" name="airfoilDataExe" preferred-package-location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin\airfoilDataExe\for_redistribution" preferred-package-type="package.type.exe" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>airfoilData</param.appname>
     <param.icon />
     <param.icons />
@@ -9,17 +9,17 @@
     <param.company>University of Naples Federico II</param.company>
     <param.summary>Get airfoil characteristics from an experimental database.</param.summary>
     <param.description>This app includes NACA 4, 5, and 6 series, and NASA supercritical airfoil database. Most of the data comes from the book Theory of Wing Sections, by Abbott and Von Doenhoff. It reports airfoil characteristics, lift curve and drag polar with a few inputs. The user has only to select airfoil family and assign relative thickness and Reynolds number. The characteristics of the curves are reported in a table, which can be exported on a spreadsheet file. Very useful in preliminary aircraft design, when the user needs a reliable source of data but has only few global parameters to play with.</param.description>
-    <param.screenshot />
+    <param.screenshot>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\docs\img_src\splashscreen.png</param.screenshot>
     <param.guid />
     <param.installpath.string>\University of Naples Federico II\airfoilData\</param.installpath.string>
     <param.installpath.combo>option.installpath.programfiles</param.installpath.combo>
     <param.logo />
     <param.install.notes />
     <param.target.install.notes />
-    <param.intermediate>${PROJECT_ROOT}\airfoilDataExe\for_testing</param.intermediate>
-    <param.files.only>${PROJECT_ROOT}\airfoilDataExe\for_redistribution_files_only</param.files.only>
-    <param.output>${PROJECT_ROOT}\airfoilDataExe\for_redistribution</param.output>
-    <param.logdir>${PROJECT_ROOT}\airfoilDataExe</param.logdir>
+    <param.intermediate>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin\airfoilDataExe\for_testing</param.intermediate>
+    <param.files.only>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin\airfoilDataExe\for_redistribution_files_only</param.files.only>
+    <param.output>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin\airfoilDataExe\for_redistribution</param.output>
+    <param.logdir>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin\airfoilDataExe</param.logdir>
     <param.enable.clean.build>false</param.enable.clean.build>
     <param.user.defined.mcr.options />
     <param.target.type>subtarget.standalone</param.target.type>
@@ -41,17 +41,12 @@
       <param.icon />
       <param.icons />
       <param.version />
-      <param.screenshot />
       <param.guid />
       <param.installpath.string />
       <param.installpath.combo />
       <param.logo />
       <param.install.notes />
       <param.target.install.notes />
-      <param.intermediate />
-      <param.files.only />
-      <param.output />
-      <param.logdir />
       <param.enable.clean.build />
       <param.user.defined.mcr.options />
       <param.target.type />
@@ -73,16 +68,18 @@
     <fileset.main>
       <file>${PROJECT_ROOT}\airfoilData.mlapp</file>
     </fileset.main>
-    <fileset.resources />
+    <fileset.resources>
+      <file>${PROJECT_ROOT}\Database</file>
+    </fileset.resources>
     <fileset.package />
     <fileset.depfun>
       <file>${PROJECT_ROOT}\airfoilDatabase.m</file>
       <file>${PROJECT_ROOT}\LinearInterpWithClipExtrap.m</file>
     </fileset.depfun>
     <build-deliverables>
-      <file location="${PROJECT_ROOT}\airfoilDataExe\for_testing" name="readme.txt" optional="true">C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\desktopAppSources\airfoilDataExe\for_testing\readme.txt</file>
-      <file location="${PROJECT_ROOT}\airfoilDataExe\for_testing" name="airfoilData.exe" optional="false">C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\desktopAppSources\airfoilDataExe\for_testing\airfoilData.exe</file>
-      <file location="${PROJECT_ROOT}\airfoilDataExe\for_testing" name="splash.png" optional="false">C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\desktopAppSources\airfoilDataExe\for_testing\splash.png</file>
+      <file location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin\airfoilDataExe\for_testing" name="airfoilData.exe" optional="false">C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin\airfoilDataExe\for_testing\airfoilData.exe</file>
+      <file location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin\airfoilDataExe\for_testing" name="splash.png" optional="false">C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin\airfoilDataExe\for_testing\splash.png</file>
+      <file location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin\airfoilDataExe\for_testing" name="readme.txt" optional="true">C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin\airfoilDataExe\for_testing\readme.txt</file>
     </build-deliverables>
     <workflow />
     <matlab>

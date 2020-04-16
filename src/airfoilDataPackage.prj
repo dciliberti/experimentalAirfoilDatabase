@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="953834887" file="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\desktopAppSources\airfoilDataPackage.prj" location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\desktopAppSources" name="airfoilDataPackage" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="1787414199" file="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src\airfoilDataPackage.prj" location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src" name="airfoilDataPackage" target="target.mlapps" target-name="Package App">
     <param.appname>airfoilData</param.appname>
     <param.authnamewatermark>Danilo Ciliberti</param.authnamewatermark>
     <param.email>danilo.ciliberti@unina.it</param.email>
@@ -12,7 +12,7 @@
     </param.icons>
     <param.summary>Get airfoil characteristics from an experimental database.</param.summary>
     <param.description>This app includes NACA 4, 5, and 6 series, and NASA supercritical airfoil database. Most of the data comes from the book Theory of Wing Sections, by Abbott and Von Doenhoff. It reports airfoil characteristics, lift curve and drag polar with a few inputs. The user has only to select airfoil family and assign relative thickness and Reynolds number. The characteristics of the curves are reported in a table, which can be exported on a spreadsheet file. Very useful in preliminary aircraft design, when the user needs a reliable source of data but has only few global parameters to play with.</param.description>
-    <param.screenshot>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\docs\screenshot.jpg</param.screenshot>
+    <param.screenshot>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\docs\img_src\screenshot.jpg</param.screenshot>
     <param.version>1.0</param.version>
     <param.products.name>
       <item>MATLAB</item>
