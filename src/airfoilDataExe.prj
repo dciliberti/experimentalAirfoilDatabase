@@ -71,7 +71,9 @@
     <fileset.resources>
       <file>${PROJECT_ROOT}\Database</file>
     </fileset.resources>
-    <fileset.package />
+    <fileset.package>
+      <file>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\LICENSE</file>
+    </fileset.package>
     <fileset.depfun>
       <file>${PROJECT_ROOT}\airfoilDatabase.m</file>
       <file>${PROJECT_ROOT}\LinearInterpWithClipExtrap.m</file>

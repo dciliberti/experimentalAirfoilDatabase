@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1787414199" file="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src\airfoilDataPackage.prj" location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src" name="airfoilDataPackage" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="25243528" file="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src\airfoilDataPackage.prj" location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src" name="airfoilDataPackage" target="target.mlapps" target-name="Package App">
     <param.appname>airfoilData</param.appname>
     <param.authnamewatermark>Danilo Ciliberti</param.authnamewatermark>
     <param.email>danilo.ciliberti@unina.it</param.email>
@@ -41,6 +41,7 @@
       <file>${PROJECT_ROOT}\LinearInterpWithClipExtrap.m</file>
     </fileset.depfun>
     <fileset.resources>
+      <file>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\LICENSE</file>
       <file>${PROJECT_ROOT}\Database</file>
     </fileset.resources>
     <fileset.package />
