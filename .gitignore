@@ -1,2 +1,5 @@
 *.asv
+*.xls
 bin/*
+docs/img_src*
+src/outputFiguresMatlab/*
