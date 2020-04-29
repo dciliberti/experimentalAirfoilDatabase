@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="25243528" file="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src\airfoilDataPackage.prj" location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src" name="airfoilDataPackage" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="1623647239" file="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src\airfoilDataPackage.prj" location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src" name="airfoilDataPackage" target="target.mlapps" target-name="Package App">
     <param.appname>airfoilData</param.appname>
     <param.authnamewatermark>Danilo Ciliberti</param.authnamewatermark>
     <param.email>danilo.ciliberti@unina.it</param.email>
@@ -11,9 +11,9 @@
       <file>${PROJECT_ROOT}\airfoilDataPackage_resources\icon_16.png</file>
     </param.icons>
     <param.summary>Get airfoil characteristics from an experimental database.</param.summary>
-    <param.description>This app includes NACA 4, 5, and 6 series, and NASA supercritical airfoil database. Most of the data comes from the book Theory of Wing Sections, by Abbott and Von Doenhoff. It reports airfoil characteristics, lift curve and drag polar with a few inputs. The user has only to select airfoil family and assign relative thickness and Reynolds number. The characteristics of the curves are reported in a table, which can be exported on a spreadsheet file. Very useful in preliminary aircraft design, when the user needs a reliable source of data but has only few global parameters to play with.</param.description>
+    <param.description>This app queries an aerodynamic database of NACA 4 digits, 5 digits, 6 series, and NASA supercritical airfoils. Data for the NACA sections has been derived from the book Theory of Wing Sections, by Abbott and Von Doenhoff. Data for NASA supercritical (cambered) airfoil is extracted from NASA TM 81912. The app reports airfoil characteristics, lift curve and drag polar with a few inputs. The user has only to select airfoil family and assign relative thickness and Reynolds number. The characteristics of the curves are reported in a table, which can be exported on a spreadsheet file. Very useful in preliminary aircraft design, when the user needs a reliable source of data but has only few global parameters to play with.</param.description>
     <param.screenshot>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\docs\img_src\screenshot.jpg</param.screenshot>
-    <param.version>1.0</param.version>
+    <param.version>1.1</param.version>
     <param.products.name>
       <item>MATLAB</item>
     </param.products.name>
@@ -24,13 +24,12 @@
       <item>9.5</item>
     </param.products.version>
     <param.platforms />
-    <param.output>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase</param.output>
+    <param.output>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin</param.output>
     <param.guid>d2f9e89e-820b-4e84-bbaa-6a10b1d2d912</param.guid>
     <unset>
       <param.authnamewatermark />
       <param.email />
       <param.company />
-      <param.version />
       <param.platforms />
     </unset>
     <fileset.main>
@@ -46,7 +45,7 @@
     </fileset.resources>
     <fileset.package />
     <build-deliverables>
-      <file location="C:\Users\Danilo\Documents\MATLAB" name="experimentalAirfoilDatabase" optional="false">C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase</file>
+      <file location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase" name="bin" optional="false">C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\bin</file>
     </build-deliverables>
     <workflow />
     <matlab>

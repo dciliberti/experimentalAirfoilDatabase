@@ -288,8 +288,10 @@ for i = 1:numberOfSections
                 alfa_star_sc, localReynolds(i));
             AlfaStallReCorr(i) = LinearInterpWithClipExtrap(Re_corr_on_alfa_stall_sc,...
                 alfa_stall_sc, localReynolds(i));
-            CdMinReCorr(i) = LinearInterpWithClipExtrap(Re_corr_on_Cd_min_sc,...
-                Cd_min_Re_corr_sc, localReynolds(i));
+%             CdMinReCorr(i) = LinearInterpWithClipExtrap(Re_corr_on_Cd_min_sc,...
+%                 Cd_min_Re_corr_sc, localReynolds(i));
+    % New correction for Reynolds from smooth airfoil data of NASA TM 81912
+            CdMinReCorr(i) = 0.13263*log(localReynolds(i)/1e6) + 0.68917;
             kReCorr(i) = LinearInterpWithClipExtrap(Re_corr_on_k_sc,...
                 k_Re_corr_sc, localReynolds(i));
             CmReCorr(i) = LinearInterpWithClipExtrap(Re_corr_on_Cm_c4_sc,...
@@ -326,9 +328,17 @@ for i = 1:numberOfSections
         localAlfaStall(i) = AlfaStallReCorr(i) * alfa_stall_sc_ref;
         
         % Section minimum drag coefficient with Reynolds correction
-        localCdMin(i) = LinearInterpWithClipExtrap(tc_on_Cd_min_sc,...
-            Cd_min_sc, thicknessRatio(i));
+%         localCdMin(i) = LinearInterpWithClipExtrap(tc_on_Cd_min_sc,...
+%             Cd_min_sc, thicknessRatio(i));
+% New correction for Reynolds from smooth airfoil data of NASA TM 81912
+        localCdMin(i) = 0.00704*log(thicknessRatio(i)) - 0.00881;
         localCdMin(i) = localCdMin(i) * CdMinReCorr(i);
+        if localCdMin(i) < 0.0035
+            localCdMin(i) = 0.0035;
+        end
+        if localCdMin(i) > 0.0100
+            localCdMin(i) = 0.0100;
+        end
         
         % Section k factor has only Reynolds correction
         localK(i) = kReCorr(i) * k_sc_ref;
