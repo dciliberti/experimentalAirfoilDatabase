@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.apptool" plugin-version="1.0">
-  <configuration build-checksum="1623647239" file="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src\airfoilDataPackage.prj" location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src" name="airfoilDataPackage" target="target.mlapps" target-name="Package App">
+  <configuration build-checksum="222443182" file="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src\airfoilDataPackage.prj" location="C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\src" name="airfoilDataPackage" target="target.mlapps" target-name="Package App">
     <param.appname>airfoilData</param.appname>
     <param.authnamewatermark>Danilo Ciliberti</param.authnamewatermark>
     <param.email>danilo.ciliberti@unina.it</param.email>
@@ -11,7 +11,7 @@
       <file>${PROJECT_ROOT}\airfoilDataPackage_resources\icon_16.png</file>
     </param.icons>
     <param.summary>Get airfoil characteristics from an experimental database.</param.summary>
-    <param.description>This app queries an aerodynamic database of NACA 4 digits, 5 digits, 6 series, and NASA supercritical airfoils. Data for the NACA sections has been derived from the book Theory of Wing Sections, by Abbott and Von Doenhoff. Data for NASA supercritical (cambered) airfoil is extracted from NASA TM 81912. The app reports airfoil characteristics, lift curve and drag polar with a few inputs. The user has only to select airfoil family and assign relative thickness and Reynolds number. The characteristics of the curves are reported in a table, which can be exported on a spreadsheet file. Very useful in preliminary aircraft design, when the user needs a reliable source of data but has only few global parameters to play with.</param.description>
+    <param.description>This app queries an aerodynamic database of NACA 4 digits, 5 digits, 6 series, and NASA supercritical airfoils. Data for the NACA sections has been derived from the book Theory of Wing Sections, by Abbott and Von Doenhoff. Data for NASA supercritical (cambered) airfoil is extracted from NASA TM 81912. The app reports airfoil characteristics, lift curve and drag polar with a few inputs. The user has only to select airfoil family and assign relative thickness and Reynolds number. The characteristics of the curves are reported in a table, which can be exported on a spreadsheet file. All data are at low Mach number, incompressible flow regime. Very useful in preliminary aircraft design, when the user needs a reliable source of data but has only few global parameters to play with.</param.description>
     <param.screenshot>C:\Users\Danilo\Documents\MATLAB\experimentalAirfoilDatabase\docs\img_src\screenshot.jpg</param.screenshot>
     <param.version>1.1</param.version>
     <param.products.name>
